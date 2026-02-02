@@ -5,14 +5,16 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class ApiService {
-  // Select appropriate base URL depending on platform:
-  // - Web: use localhost
-  // - Android emulator: use 10.0.2.2 to reach host machine
-  // - Other (desktop, iOS, physical Android): use localhost or replace with machine IP if needed
+  // Production API URL - deployed on Render
+  // Using the deployed backend instead of localhost
   static String get baseUrl {
-    if (kIsWeb) return 'http://localhost:5001/api';
-    if (Platform.isAndroid) return 'http://10.0.2.2:5001/api';
-    return 'http://localhost:5001/api';
+    // For production, use the deployed Render backend
+    return 'https://pool-m.onrender.com/api';
+    
+    // For local development, uncomment below and comment above:
+    // if (kIsWeb) return 'http://localhost:5001/api';
+    // if (Platform.isAndroid) return 'http://10.0.2.2:5001/api';
+    // return 'http://localhost:5001/api';
   }
 
   static Future<Map<String, dynamic>> login(
