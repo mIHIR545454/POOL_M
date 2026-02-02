@@ -2,6 +2,7 @@
 backend/node_modules/
 backend/.env
 backend/package-lock.json
+node_modules/
 
 # Flutter
 ttc_pool/.dart_tool/
